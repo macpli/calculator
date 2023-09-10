@@ -1,41 +1,29 @@
-let num1, num2, currNum, operator;
-currNum = '';
+let num1, num2, currNum, operator   ;
 
-let display = document.querySelector('.display');
-display.textContent ='';
 let displayNumber;
-
+let display = document.querySelector('.display');
 let row1 = document.querySelector('.row-1');
 let row2 = document.querySelector('.row-2');
 let row3 = document.querySelector('.row-3');
 
+currNum = '';
+display.textContent ='';
+
 const opAdd = document.querySelector('#add').addEventListener('click', function(){
-    num1 = currNum;
     operator = '+';
-    displayNumber = num1 + '+';
-    updateDisplay(displayNumber);
-    currNum = '';
+    getOperator(operator);
 });
 const opSub = document.querySelector('#sub').addEventListener('click', function(){
-    num1 = currNum;
     operator = '-';
-    displayNumber = num1 + '-';
-    updateDisplay(displayNumber);
-    currNum = '';
+    getOperator(operator);
 });
 const opMul = document.querySelector('#mul').addEventListener('click', function(){
-    num1 = currNum;
     operator = '*';
-    displayNumber = num1 + '*';
-    updateDisplay(displayNumber);
-    currNum = '';
+    getOperator(operator);
 });
 const opDiv = document.querySelector('#div').addEventListener('click', function(){
-    num1 = currNum;
     operator = '/';
-    displayNumber = num1 + '/';
-    updateDisplay(displayNumber);
-    currNum = '';
+    getOperator(operator);
 });
 
 const opEqu = document.querySelector('#equ').addEventListener('click', function(){
@@ -73,6 +61,13 @@ const Divide = function(num1, num2){
     currNum = updateCurrentNumber(currNum, '');
     updateDisplay(currNum);
     return currNum;
+}
+
+const getOperator = function(operator) {
+    num1 = currNum;
+    displayNumber = num1 + operator;
+    updateDisplay(displayNumber);
+    currNum = '';
 }
 
 const Operate = function(num1, num2, operator) {
@@ -177,4 +172,3 @@ const updateDisplay = function(displayNumer){
 }
 
 generateCalcNums();
-Operate(num1, num2, operator);
