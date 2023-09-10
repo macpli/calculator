@@ -16,9 +16,27 @@ const opAdd = document.querySelector('#add').addEventListener('click', function(
     updateDisplay(displayNumber);
     currNum = '';
 });
-const opSub = document.querySelector('#sub');
-const opMul = document.querySelector('#mul');
-const opDiv = document.querySelector('#div');
+const opSub = document.querySelector('#sub').addEventListener('click', function(){
+    num1 = currNum;
+    operator = '-';
+    displayNumber = num1 + '-';
+    updateDisplay(displayNumber);
+    currNum = '';
+});
+const opMul = document.querySelector('#mul').addEventListener('click', function(){
+    num1 = currNum;
+    operator = '*';
+    displayNumber = num1 + '*';
+    updateDisplay(displayNumber);
+    currNum = '';
+});
+const opDiv = document.querySelector('#div').addEventListener('click', function(){
+    num1 = currNum;
+    operator = '/';
+    displayNumber = num1 + '/';
+    updateDisplay(displayNumber);
+    currNum = '';
+});
 
 const opEqu = document.querySelector('#equ').addEventListener('click', function(){
     num2 = Number(currNum);
@@ -26,13 +44,7 @@ const opEqu = document.querySelector('#equ').addEventListener('click', function(
         num1 = 0;
     }
 
-    if(operator == '+'){
-        Add(Number(num1), Number(num2));
-    }
-
-
-    
-    
+    Operate(num1, num2, operator);
 });
 
 const Add = function(num1, num2){
@@ -43,18 +55,24 @@ const Add = function(num1, num2){
 }
 
 const Subtract = function(num1, num2){
-    let result = num1 - num2;
-    console.log(result);
+    currNum = Number(num1) - Number(num2);
+    currNum = updateCurrentNumber(currNum, '');
+    updateDisplay(currNum);
+    return currNum;
 }
 
 const Multiply = function(num1, num2){
-    let result = num1 * num2;
-    console.log(result);
+    currNum = Number(num1) * Number(num2);
+    currNum = updateCurrentNumber(currNum, '');
+    updateDisplay(currNum);
+    return currNum;
 }
 
 const Divide = function(num1, num2){
-    let result = num1 / num2;
-    console.log(result);
+    currNum = Number(num1) / Number(num2);
+    currNum = updateCurrentNumber(currNum, '');
+    updateDisplay(currNum);
+    return currNum;
 }
 
 const Operate = function(num1, num2, operator) {
@@ -83,7 +101,7 @@ const generateCalcNums = function() {
                 displayNumber = String(currNum);
                 updateDisplay(displayNumber);
             } else if (num1 != undefined){
-                displayNumber = String(num1) + '+' + String(currNum);
+                displayNumber = String(num1) + operator + String(currNum);
                 updateDisplay(displayNumber);
             }
         });
@@ -102,7 +120,7 @@ const generateCalcNums = function() {
                 displayNumber = String(currNum);
                 updateDisplay(displayNumber);
             } else if (num1 != undefined){
-                displayNumber = String(num1) + '+' + String(currNum);
+                displayNumber = String(num1) + operator + String(currNum);
                 updateDisplay(displayNumber);
             }
         });
@@ -141,7 +159,7 @@ const generateCalcNums = function() {
                 displayNumber = String(currNum);
                 updateDisplay(displayNumber);
             } else if (num1 != undefined){
-                displayNumber = String(num1) + '+' + String(currNum);
+                displayNumber = String(num1) + operator + String(currNum);
                 updateDisplay(displayNumber);
             }
         });
