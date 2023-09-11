@@ -1,16 +1,16 @@
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
-.container-main{
+.container-main {
 }
 
 button {
-    padding: 1em;
+  padding: 1em;
 }
