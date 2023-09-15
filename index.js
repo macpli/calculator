@@ -92,10 +92,20 @@ const Operate = function (num1, num2, operator) {
   }
 };
 
+const Reset = function(){
+  currNum = '';
+  num1 = '';
+  num2 = '';
+  operator = '';
+  displayNumber = '';
+  updateDisplay(displayNumber);
+}
+
 const generateCalcNums = function () {
   for (let i = 0; i < 3; i++) {
     let idNumber = String(7 + i);
     let btn = document.createElement("button");
+    
     btn.textContent = idNumber;
     btn.setAttribute("id", idNumber);
     btn.addEventListener("click", function () {
@@ -114,6 +124,10 @@ const generateCalcNums = function () {
     });
     row1.append(btn);
   }
+  let btn = document.createElement("button");
+  btn.addEventListener("click", Reset)
+  btn.textContent = 'C';
+  row1.append(btn);
   for (let i = 0; i < 3; i++) {
     let idNumber = 4 + i;
     let btn = document.createElement("button");

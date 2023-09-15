@@ -4,13 +4,51 @@
 }
 
 body {
-  display: flex;
-  justify-content: center;
+  padding: 15px;
+  height: 100vh;
 }
 
 .container-main {
+  margin: 25px auto 0 auto;
+  display: flex;  
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+  height: 80%;
+  font-size: 40px;
+
+  border: 1px black solid;
+  border-radius: 16px;
+  background-color: rgb(234, 234, 234);
+}
+
+.operators {
+  display: flex;
+}
+
+.display {
+  font-size: 36px;
+  text-align: right;
+  border: 1px black solid;
+  border-radius: 16px;
+  width: 70%;
+  padding: 15px;
+  height: 1em;
+  margin: 15px auto;
+  background-color: white;
 }
 
 button {
-  padding: 1em;
+  width: 80px;
+  height: 80px;
+  text-align: center;
+  font-size: 18px;
+  padding: 2em;
+  margin: 5px;
+
+  border-radius: 12px;
+  border: none;
+  background-color: black;
+  color: white;
 }
