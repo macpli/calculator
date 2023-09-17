@@ -92,103 +92,70 @@ const Operate = function (num1, num2, operator) {
   }
 };
 
-const Reset = function(){
-  currNum = '';
-  num1 = '';
-  num2 = '';
-  operator = '';
-  displayNumber = '';
+const Reset = function () {
+  currNum = "";
+  num1 = "";
+  num2 = "";
+  operator = "";
+  displayNumber = "";
   updateDisplay(displayNumber);
-}
+};
 
 const generateCalcNums = function () {
+  // 7 - 9 Row
   for (let i = 0; i < 3; i++) {
     let idNumber = String(7 + i);
     let btn = document.createElement("button");
-    
+
     btn.textContent = idNumber;
     btn.setAttribute("id", idNumber);
     btn.addEventListener("click", function () {
-      currNum = updateCurrentNumber(currNum, idNumber);
-      if (displayNumber == undefined) {
-        displayNumber = "";
-      }
-
-      if (num1 == undefined) {
-        displayNumber = String(currNum);
-        updateDisplay(displayNumber);
-      } else if (num1 != undefined) {
-        displayNumber = String(num1) + operator + String(currNum);
-        updateDisplay(displayNumber);
-      }
+      onClickNum(idNumber);
     });
     row1.append(btn);
   }
+  // Clear button
   let btn = document.createElement("button");
-  btn.addEventListener("click", Reset)
-  btn.textContent = 'C';
+  btn.addEventListener("click", Reset);
+  btn.textContent = "C";
   row1.append(btn);
+  
+  // 4 - 6 Row
   for (let i = 0; i < 3; i++) {
     let idNumber = 4 + i;
     let btn = document.createElement("button");
     btn.textContent = 4 + i;
     btn.setAttribute("id", 4 + i);
     btn.addEventListener("click", function () {
-      currNum = updateCurrentNumber(currNum, idNumber);
-      if (displayNumber == undefined) {
-        displayNumber = "";
-      }
-
-      if (num1 == undefined) {
-        displayNumber = String(currNum);
-        updateDisplay(displayNumber);
-      } else if (num1 != undefined) {
-        displayNumber = String(num1) + operator + String(currNum);
-        updateDisplay(displayNumber);
-      }
+      onClickNum(idNumber);
     });
     row2.append(btn);
   }
 
-  // TODO
-  // const onClickNum = function(idNumber, currNum, num1, displayNumber){
-  //     currNum = updateCurrentNumber(currNum, idNumber);
-
-  //         if(displayNumber == undefined){ displayNumber = '' };
-
-  //         if(num1 == undefined){
-  //             displayNumber = String(currNum);
-  //             updateDisplay(displayNumber);
-  //         } else if (num1 != undefined){
-  //             displayNumber = String(num1) + '+' + String(currNum);
-  //             updateDisplay(displayNumber);
-  //         }
-  //     return currNum, displayNumber;
-  // }
-
+  // 1 - 3 Row
   for (let i = 0; i < 3; i++) {
     let idNumber = 1 + i;
     let btn = document.createElement("button");
     btn.textContent = 1 + i;
     btn.setAttribute("id", 1 + i);
     btn.addEventListener("click", function () {
-      // TODO
-      // onClickNum(idNumber, currNum, num1, displayNumber);
-      currNum = updateCurrentNumber(currNum, idNumber);
-
-      if (displayNumber == undefined) {
-        displayNumber = "";
-      }
-
-      if (num1 == undefined) {
-        displayNumber = String(currNum);
-        updateDisplay(displayNumber);
-      } else if (num1 != undefined) {
-        displayNumber = String(num1) + operator + String(currNum);
-        updateDisplay(displayNumber);
-      }
+      onClickNum(idNumber);
     });
     row3.append(btn);
+  }
+};
+
+const onClickNum = function (idNumber) {
+  currNum = updateCurrentNumber(currNum, idNumber);
+  if (displayNumber == undefined) {
+    displayNumber = "";
+  }
+  if (num1 == undefined) {
+    displayNumber = String(currNum);
+    updateDisplay(displayNumber);
+  } else if (num1 != undefined) {
+    displayNumber = String(num1) + operator + String(currNum);
+    updateDisplay(displayNumber);
   }
 };
 
