@@ -103,46 +103,68 @@ const Reset = function () {
 
 const generateCalcNums = function () {
   // 7 - 9 Row
-  for (let i = 0; i < 3; i++) {
-    let idNumber = String(7 + i);
+  for (let i = 3; i > 0; i--) {
+    let idNumber = 6 + i;
     let btn = document.createElement("button");
-
     btn.textContent = idNumber;
     btn.setAttribute("id", idNumber);
     btn.addEventListener("click", function () {
       onClickNum(idNumber);
     });
-    row1.append(btn);
+    row1.prepend(btn);
   }
+  
+  // 4 - 6 Row
+  for (let i = 3; i > 0; i--) {
+    let idNumber = 3 + i;
+    let btn = document.createElement("button");
+    btn.textContent = idNumber;
+    btn.setAttribute("id", idNumber);
+    btn.addEventListener("click", function () {
+      onClickNum(idNumber);
+    });
+    row2.prepend(btn);
+  }
+
+  // 1 - 3 Row
+  for (let i = 3; i > 0; i--) {
+    let idNumber = 0 + i;
+    let btn = document.createElement("button");
+    btn.textContent = idNumber;
+    btn.setAttribute("id", idNumber);
+    btn.addEventListener("click", function () {
+      onClickNum(idNumber);
+    });
+    row3.prepend(btn);
+  }
+
+  // Row 0
+  let row0 = document.querySelector(".row-0");
+  let btnP = document.createElement("button");
+  let btnY = document.createElement("button");
+  btnP.textContent = "%";
+  btnY.textContent = "Y";
+  row0.prepend(btnP);
+  row0.prepend(btnY);
+
   // Clear button
   let btn = document.createElement("button");
   btn.addEventListener("click", Reset);
   btn.textContent = "C";
-  row1.append(btn);
-  
-  // 4 - 6 Row
-  for (let i = 0; i < 3; i++) {
-    let idNumber = 4 + i;
-    let btn = document.createElement("button");
-    btn.textContent = 4 + i;
-    btn.setAttribute("id", 4 + i);
-    btn.addEventListener("click", function () {
-      onClickNum(idNumber);
-    });
-    row2.append(btn);
-  }
+  row0.prepend(btn);
 
-  // 1 - 3 Row
-  for (let i = 0; i < 3; i++) {
-    let idNumber = 1 + i;
-    let btn = document.createElement("button");
-    btn.textContent = 1 + i;
-    btn.setAttribute("id", 1 + i);
-    btn.addEventListener("click", function () {
-      onClickNum(idNumber);
-    });
-    row3.append(btn);
-  }
+  // row 4
+  let row4 = document.querySelector(".row-4");
+
+  // 0 number
+  let btnZero = document.createElement("button");
+  btnZero.addEventListener("click", function(){
+    onClickNum(0);
+  });
+  let btnE = document.querySelector("#ex")
+  btnZero.textContent = "0";
+  btnZero.setAttribute("id","zero");
+  row4.insertBefore(btnZero, btnE)
 };
 
 const onClickNum = function (idNumber) {
