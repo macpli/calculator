@@ -39,6 +39,10 @@ body {
   background-color: white;
 }
 
+.row {
+  display: flex;
+}
+
 button {
   width: 80px;
   height: 80px;
@@ -53,6 +57,13 @@ button {
   color: white;
 }
 
-.row {
-  display: flex;
+#clear {
+  background-color: tomato;
+  color: black;
+  font-weight: bold;
+}
+
+#equ {
+  background-color: rgb(34, 74, 221);
+  font-weight: 700;
 }

@@ -148,10 +148,11 @@ const generateCalcNums = function () {
   row0.prepend(btnY);
 
   // Clear button
-  let btn = document.createElement("button");
-  btn.addEventListener("click", Reset);
-  btn.textContent = "C";
-  row0.prepend(btn);
+  let btnC = document.createElement("button");
+  btnC.addEventListener("click", Reset);
+  btnC.textContent = "C";
+  btnC.setAttribute("id","clear");
+  row0.prepend(btnC);
 
   // row 4
   let row4 = document.querySelector(".row-4");
