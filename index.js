@@ -179,12 +179,13 @@ const onClickNum = function (idNumber) {
     displayNumber = "";
   }
 
-  if(num1 == 0 && operator == '-'){
-    Subtract(num1, currNum);
+  if(num1 == 0 && operator != undefined){
+    Operate(num1, currNum, operator);
+  } else if (num1 != undefined && currNum != undefined && operator != undefined) {
+    Operate(num1, currNum, operator);
   } else if (num1 == undefined) {
     displayNumber = String(currNum);
     updateDisplay(displayNumber);
-    console.log(num1, num2, currNum, operator);
   } else if (num1 != undefined) {
     displayNumber = String(num1) + operator + String(currNum);
     updateDisplay(displayNumber);
