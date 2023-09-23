@@ -74,10 +74,15 @@ const Divide = function (num1, num2) {
 };
 
 const getOperator = function (operator) {
-  num1 = currNum;
-  displayNumber = num1 + operator;
-  updateDisplay(displayNumber);
-  currNum = "";
+  if(currNum == '')
+  {
+    num1 = 0;
+  } else {
+    num1 = currNum;
+  }
+    displayNumber = num1 + operator;
+    updateDisplay(displayNumber);
+    currNum = "";
 };
 
 const Operate = function (num1, num2, operator) {
@@ -113,7 +118,7 @@ const generateCalcNums = function () {
     });
     row1.prepend(btn);
   }
-  
+
   // 4 - 6 Row
   for (let i = 3; i > 0; i--) {
     let idNumber = 3 + i;
@@ -151,7 +156,7 @@ const generateCalcNums = function () {
   let btnC = document.createElement("button");
   btnC.addEventListener("click", Reset);
   btnC.textContent = "C";
-  btnC.setAttribute("id","clear");
+  btnC.setAttribute("id", "clear");
   row0.prepend(btnC);
 
   // row 4
@@ -159,13 +164,13 @@ const generateCalcNums = function () {
 
   // 0 number
   let btnZero = document.createElement("button");
-  btnZero.addEventListener("click", function(){
+  btnZero.addEventListener("click", function () {
     onClickNum(0);
   });
-  let btnE = document.querySelector("#ex")
+  let btnE = document.querySelector("#ex");
   btnZero.textContent = "0";
-  btnZero.setAttribute("id","zero");
-  row4.insertBefore(btnZero, btnE)
+  btnZero.setAttribute("id", "zero");
+  row4.insertBefore(btnZero, btnE);
 };
 
 const onClickNum = function (idNumber) {
@@ -173,13 +178,17 @@ const onClickNum = function (idNumber) {
   if (displayNumber == undefined) {
     displayNumber = "";
   }
-  if (num1 == undefined) {
+
+  if(num1 == 0 && operator == '-'){
+    Subtract(num1, currNum);
+  } else if (num1 == undefined) {
     displayNumber = String(currNum);
     updateDisplay(displayNumber);
+    console.log(num1, num2, currNum, operator);
   } else if (num1 != undefined) {
     displayNumber = String(num1) + operator + String(currNum);
     updateDisplay(displayNumber);
-  }
+  } 
 };
 
 const updateCurrentNumber = function (currNum, num) {
