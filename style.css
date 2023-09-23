@@ -53,17 +53,35 @@ button {
 
   border-radius: 12px;
   border: none;
-  background-color: black;
+  background-color: gray;
   color: white;
+}
+
+button:hover {
+  background-color: rgb(82, 82, 82);
+}
+
+button:active {
+  background-color: rgb(33, 33, 33);
+  transform: scale(0.9, 0.9);
+  
 }
 
 #clear {
   background-color: tomato;
-  color: black;
+  color: white;
   font-weight: bold;
+}#clear:hover {
+  background-color: rgb(221, 63, 36);
+}#clear:active {
+  background-color: brown;
 }
 
 #equ {
   background-color: rgb(34, 74, 221);
   font-weight: 700;
+}#equ:hover {
+  background-color: rgb(32, 64, 179);
+}#equ:active {
+  background-color: rgb(24, 49, 136);
 }
